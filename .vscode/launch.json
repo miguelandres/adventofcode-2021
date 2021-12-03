@@ -1,10 +1,19 @@
 {"version": "0.2.0",
 "configurations": [
+
     {
         "type": "scala",
         "request": "launch",
         "name": "Day1",
         "mainClass": "day01.SonarMeasurements",
+        "args": [],
+        "jvmOptions": []
+    },
+    {
+        "type": "scala",
+        "request": "launch",
+        "name": "Day3",
+        "mainClass": "day03.BinaryDiagnostic",
         "args": [],
         "jvmOptions": []
     },
