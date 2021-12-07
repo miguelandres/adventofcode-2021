@@ -8,18 +8,22 @@ object CrabSubmarine extends App {
     Source.fromFile("input/d07p01.txt").getLines().toSeq.head.split(",").map(_.toLong)
   val (min, max) = (positions.min, positions.max)
 
-  var bestPosition = min
   var bestFuel = Long.MaxValue
+  var bestDistance = Long.MaxValue
   for (i <- min to max) {
-    val sum = positions.map { x =>
-      val distance = Math.abs(x - i)
-      val fuel = distance * (distance + 1) / 2
-      fuel
-    }.sum
-    if (sum < bestFuel) {
-      bestFuel = sum
-      bestPosition = i
+    val distances = positions.map(x => Math.abs(x - i))
+    val distanceSum = distances.sum
+
+    if (distanceSum < bestDistance) {
+      bestDistance = distanceSum
+    }
+
+    val fuel = distances.map(distance => (distance * (distance + 1) / 2))
+    val fuelSum = fuel.sum
+    if (fuelSum < bestFuel) {
+      bestFuel = fuelSum
     }
   }
+  println(bestDistance)
   println(bestFuel)
 }
