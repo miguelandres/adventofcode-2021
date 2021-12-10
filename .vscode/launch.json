@@ -1,20 +1,29 @@
-{"version": "0.2.0",
-"configurations": [
-
-    {
-        "type": "scala",
-        "request": "launch",
-        "name": "Day1",
-        "mainClass": "day01.SonarMeasurements",
-        "args": [],
-        "jvmOptions": []
-    },
-    {
-        "type": "scala",
-        "request": "launch",
-        "name": "Day3",
-        "mainClass": "day03.BinaryDiagnostic",
-        "args": [],
-        "jvmOptions": []
-    },
-]}
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "scala",
+            "request": "launch",
+            "name": "Day1",
+            "mainClass": "day01.SonarMeasurements",
+            "args": [],
+            "jvmOptions": []
+        },
+        {
+            "type": "scala",
+            "request": "launch",
+            "name": "Day3",
+            "mainClass": "day03.BinaryDiagnostic",
+            "args": [],
+            "jvmOptions": []
+        },
+        {
+            "type": "scala",
+            "request": "launch",
+            "name": "Day8",
+            "mainClass": "day08.SevenSegmentSearch",
+            "args": [],
+            "jvmOptions": []
+        },
+    ]
+}
