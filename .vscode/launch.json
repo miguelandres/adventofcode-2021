@@ -25,5 +25,11 @@
             "args": [],
             "jvmOptions": []
         },
+        {
+            "type": "scala",
+            "request": "launch",
+            "name": "Day9",
+            "mainClass": "day09.SmokeBasin"
+        },
     ]
 }
