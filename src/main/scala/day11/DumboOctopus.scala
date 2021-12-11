@@ -6,7 +6,7 @@ import scala.util.control.Breaks._
 object DumboOctopus extends App {
 
   val input: Array[Array[Option[Int]]] = Source
-    .fromFile("input/d11p00.txt")
+    .fromFile("input/d11p01.txt")
     .getLines()
     .map(str => str.map(c => Option((c - '0').toInt)).toArray)
     .toArray
