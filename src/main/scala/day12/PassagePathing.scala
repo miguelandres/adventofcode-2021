@@ -25,27 +25,31 @@ object PassagePathing extends App {
     def last = path.last
   }
 
-  var paths = Seq(Path())
+  def process(allowRepeatVisits: Boolean): Seq[Path] = {
+    var paths = Seq(Path(repeatVisitedSmallCave = !allowRepeatVisits))
 
-  while (paths.exists(!_.isDone)) {
-    paths = paths.flatMap { path =>
-      if (path.isDone) { Seq(path) }
-      else {
-        (edgeMap(path.last).clone()).collect {
-          case next
-              if next != "start" && path.blockedNeighbors
-                .contains(next) && !path.repeatVisitedSmallCave =>
-            path.copy(path = path.path :+ next, repeatVisitedSmallCave = true)
-          case next
-              if next.forall(_.isLower) && !path.blockedNeighbors
-                .contains(next) =>
-            path.copy(path = path.path :+ next, blockedNeighbors = path.blockedNeighbors + next)
-          case next if next.exists(!_.isLower) =>
-            path.copy(path = path.path :+ next)
+    while (paths.exists(!_.isDone)) {
+      paths = paths.flatMap { path =>
+        if (path.isDone) { Seq(path) }
+        else {
+          (edgeMap(path.last).clone()).collect {
+            case next
+                if next != "start" && path.blockedNeighbors
+                  .contains(next) && !path.repeatVisitedSmallCave =>
+              path.copy(path = path.path :+ next, repeatVisitedSmallCave = true)
+            case next
+                if next.forall(_.isLower) && !path.blockedNeighbors
+                  .contains(next) =>
+              path.copy(path = path.path :+ next, blockedNeighbors = path.blockedNeighbors + next)
+            case next if next.exists(!_.isLower) =>
+              path.copy(path = path.path :+ next)
+          }
         }
       }
     }
+    paths
   }
 
-  println(paths.size)
+  println(process(false).size)
+  println(process(true).size)
 }
