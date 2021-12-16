@@ -31,5 +31,11 @@
             "name": "Day9",
             "mainClass": "day09.SmokeBasin"
         },
+        {
+            "type": "scala",
+            "request": "launch",
+            "name": "Day16",
+            "mainClass": "day16.PacketDecoder"
+        },
     ]
 }
